@@ -34,11 +34,11 @@ const Admin = ({db,pushDB,stateDB}) => {
 
   const deleteDB = (id) => {
     console.log(id)
-    let prevDb = db;
-    let newPrev = prevDb.filter(item => item.id !== id)
-    // prevDb.splice(id,1)
-    stateDB(newPrev)
-    // stateDB(prevDb)
+    let prevDb = [...db];
+    // let newPrev = prevDb.filter(item => item.id !== id)
+    prevDb.splice(id,1)
+    // stateDB(newPrev)
+    stateDB([...prevDb])
   }
   
   return (
@@ -64,14 +64,14 @@ const Admin = ({db,pushDB,stateDB}) => {
                 <th>Position</th>
                 <th>Delete</th>
             </tr>
-              {db.map(item => 
+              {db.map((item,index) => 
             <tr>
                 <td>{item.name}</td>
                 <td>{item.lastname}</td>
                 <td>{item.position}</td>
                 <td>
                   <button onClick={() => {
-                    deleteDB(item.id)
+                    deleteDB(index)
                     }}>Delete</button>
                 </td>
             </tr>
