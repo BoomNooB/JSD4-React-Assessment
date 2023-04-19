@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <Layout>
       <div>
-        <h1>Generation Thailand <br></br>{pageSector}</h1>
+        <h1>Boom <br></br>{pageSector}</h1>
         <button onClick={() => {
           setPageSector("Home - User Sector")
           setRights('user')}}>User Home Sector</button>
